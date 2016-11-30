@@ -49,7 +49,7 @@ sudo openssl rsa -in server.key.original -out server.key
 
 Nginx中配置和使用SSL证书
 
-修改Nginx配置文件``/etc/nginx/sites-enabled/default`，加上：
+修改Nginx配置文件`/etc/nginx/sites-enabled/default`，加上：
 
 ```
 server {
