@@ -36,7 +36,7 @@ animate: true
 open_in_new: false
 
 # Miscellaneous
-google_analytics: ''
+google_analytics: 'UA-34658010-1'
 favicon: /favicon.png
 
 #你的头像url

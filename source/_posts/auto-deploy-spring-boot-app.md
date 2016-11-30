@@ -4,6 +4,7 @@ date: 2015-10-01 00:00:00
 tags:
   - Spring
   - Linux
+  - Ubuntu
 ---
 
 这篇文章主要讲解我在Ubuntu 14.04服务器上如何部署Spring Boot的网站应用的经验。以下以我的博客项目 https://github.com/Raysmond.com/SpringBlog 为例子。主要的部署需求如下：
@@ -16,7 +17,7 @@ tags:
 
 以下是一个简单的安装方法。
 
-```
+```bash
 $ sudo add-apt-repository ppa:webupd8team/java
 $ sudo apt-get update
 $ sudo apt-get install oracle-java8-installer

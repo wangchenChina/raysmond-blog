@@ -1,7 +1,10 @@
 ---
 title: How to backup MySQL database daily automatically in Ubuntu/Linux
 date: 2015-09-28 00:00:00
-tags: 數據庫
+tags:
+  - 數據庫
+  - MySQL
+  - Linux
 ---
 
 Here we use a bash script to backup MySQL database. First of all, create a backup bash script /root/backup_db.sh
