@@ -68,7 +68,7 @@ pagination_dir: page
 # theme: landscape
 theme: yilia
 
-disqus_shortname: raysmond
+# disqus_shortname: raysmond
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
