@@ -419,8 +419,9 @@ var render = function(res) {
             if(type==='video'){
               target=data.video[i];
             }
+            var dataSize = data.size[i];
             liTmpl += '<figure class="thumb" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">\
-                  <a href="'+src+'" itemprop="contentUrl" data-size="640x640" data-type="' + type + '" data-target="' + target + '">\
+                  <a href="'+src+'" itemprop="contentUrl" data-size="'+dataSize+'" data-type="' + type + '" data-target="' + target + '">\
                     <img data-type="' + type + '" data-src="'+minSrc+'" src="'+minSrc+'" itemprop="thumbnail" onload="lazy(this)"/>\
                   </a>\
                   <figcaption style="display:none" itemprop="caption description">'+data.text[i] +' <a href="https://www.instagram.com/p/'+data.code[i]+'" target="_blank">Instagram鏈接</a></figcaption>\
@@ -465,7 +466,7 @@ var ctrler = function(data) {
 }
 
 var result = [];
-var dataFile = "http://7b1fa0.com1.z0.glb.clouddn.com/instagram/images/result.json";
+var dataFile = "http://7b1fa0.com1.z0.glb.clouddn.com/instagram/images/result.json?"+Math.random();
 var dataDir = "http://7b1fa0.com1.z0.glb.clouddn.com/instagram/images/";
 
 function loadInstagram() {
@@ -527,7 +528,8 @@ function addPic(item){
         text: [],
         type: [],
         code: [],
-        video: []
+        video: [],
+        size: []
       }
     };
     result.push(subArr);
@@ -539,9 +541,9 @@ function addPic(item){
   subArr.arr.link.push(dataDir+picName+'!640x640');
   subArr.arr.text.push(item.caption);
   subArr.arr.code.push(item.code);
+  subArr.arr.size.push(item.dimensions.width+'x'+item.dimensions.height);
   subArr.arr.type.push(item.is_video ? 'video' : 'image');
   subArr.arr.video.push(item.is_video ? item.video_url : '');
-
 }
 
 
