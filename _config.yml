@@ -4,8 +4,8 @@
 
 # Site
 title: Raysmond
-subtitle: 余雖不敏，然余誠矣。
-description: 研究生畢業，将就职魔都。擅长后端开发，喜欢互联网，相信科技让生活更美好。喜歡運動，比如健身，騎行；有時文藝，比如讀書，寫字，唱歌等。
+subtitle: 余雖不敏，唯以誠矣。
+description: 互联网从业，后端开发。喜欢健身、骑行，也喜欢文学、艺术。
 author: Raysmond
 language: zh-tw
 timezone:
@@ -66,7 +66,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 # theme: landscape
-theme: yilia
+theme: yilia-new
 
 # disqus_shortname: raysmond
 
@@ -76,3 +76,22 @@ deploy:
   type: git
   repo: git@github.com:Raysmond/raysmond.github.io.git
   branch: master
+
+jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: false
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
