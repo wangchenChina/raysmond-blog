@@ -5,9 +5,10 @@
 # Site
 title: Raysmond
 subtitle: 余雖不敏，唯以誠矣。
-description: 互联网从业，后端开发。喜欢健身、骑行，也喜欢文学、艺术。
+description: 互联网从业，后端开发。喜欢健身、骑行、读书、音乐。
 author: Raysmond
-language: zh-tw
+language: zh-cn
+keywords: "后端，编程，程序员，程序猿，开发者，开源，互联网，java，spring，js，angular，健身，骑行，读书，文学，诗歌"
 timezone:
 
 # URL
@@ -76,6 +77,16 @@ deploy:
   type: git
   repo: git@github.com:Raysmond/raysmond.github.io.git
   branch: master
+
+sitemap:
+    path: sitemap.xml
+baidusitemap:
+    path: baidusitemap.xml
+
+feed:
+    type: atom
+    path: atom.xml
+    limit: 50
 
 jsonContent:
     meta: false
