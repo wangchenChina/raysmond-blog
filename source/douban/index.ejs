@@ -22,19 +22,40 @@ comments: "true"
     color: #fff;
   }
   #collections .book{
-    width: 25%;
-    float: left;
+    /*width: 100%;*/
+    /*float: left;*/
     padding-bottom: 10px;
+    position: relative;
+    clear: both;
+    min-height: 170px;
+    padding: 10px 0;
+    border-bottom: 1px #ddd solid;
+  }
+  .book .picture{
+    position: absolute;
+    left: 0;
+    top: 10px;
+  }
+  .book .info{
+    padding-left: 120px;
   }
   .book .meta{
     font-size: 12px;
     padding-right: 10px;
+  }
+  .book .comments{
+    font-size: 12px;
   }
   .hide{
     display: none;
   }
   #collections .active{
     display: block;
+  }
+  @media screen and (max-width:600px) {
+    #collections .book{
+      width: 100%;
+    }
   }
 </style>
 
@@ -43,6 +64,12 @@ comments: "true"
     <p>2017年始，开始用豆瓣记录我的阅读。</p>
     <p><a href="https://www.douban.com/people/raysmond/" target="_blank">我的豆瓣主页</a></p>
   </blockquote>
+</div>
+
+<div id="loading">
+  <p>
+    正在加载...
+  </p>
 </div>
 
 <div id="douban">
@@ -95,7 +122,8 @@ comments: "true"
     var reading = [];
     function loadDoubanCollections() {
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', './data.json?t=' + new Date(), true);
+      // https://api.douban.com/v2/book/user/:name/collections
+      xhr.open('GET', 'http://7b1fa0.com1.z0.glb.clouddn.com/douban-20170427.json', true);
 
       xhr.onload = function() {
         if (this.status >= 200 && this.status < 300) {
@@ -145,6 +173,7 @@ comments: "true"
       document.getElementById('wish-total').innerHTML = '('+wish.length+')';
 
       show('read');
+      document.getElementById('loading').classList.add('hide');
     }
 
     function renderList(list,id){
@@ -159,11 +188,11 @@ comments: "true"
 
     function renderBook(book){
       var html = '<div class="book book-'+book['status']+'">'
-      + '<div class="picture"><a href="'+book.book.alt+'"><img src="'+book.book.image+'"/></a></div><div class="info">'
+      + '<div class="picture"><img src="'+book.book.image+'"/></div><div class="info">'
       +'<div class="title"><a target="_blank" href="'+book.book.alt+'">'+book.book.title+'</a></div>'
       +'<div class="meta">'+book.book.author[0] + ' / ' + book.book.pubdate + ' / ' + book.book.rating.average+'分</div>'
       + '<div class="meta">'+book.updated.substring(0,10)+resolveRating(book.rating)+resolveTags(book.tags)+'</div>'
-      // + '<div class="comments">'+book.comment+'</div>'
+      + '<div class="comments">'+(book.comment?book.comment:'')+'</div>'
       +'</div>'
       +'</div>';
       return html;
@@ -186,8 +215,6 @@ comments: "true"
       }
       return '';
     }
-
-
 
     setTimeout(function() {
       loadDoubanCollections();
